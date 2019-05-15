@@ -1,0 +1,47 @@
+<h1>New Transaction</h1>
+
+<div class="container">
+  <div class="panel panel-default">
+      <div class="panel-body">
+        Test panel
+      </div>
+    </div>
+</div>
+
+<%= form_with scope: :transaction, url: transactions_path, local: true do |f| %>
+  <p>
+    <%= f.label :person %><br>
+    <%= f.select :person, options_for_select([['Andrew'], ['Maria']]) %>
+    <%# Todo need to fetch from persons model, may need a neutral option %>
+  </p>
+
+  <p>
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+    <%# Todo better date selection and default to today %>
+  </p>
+
+  <p>
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+    <%# Todo need to limit to 2 decimal places, colour red if debit and put negative symbol in front %>
+    <%# Todo see https://launchpadlab.com/blog/how-decorators-saved-my-rails-app/ %>
+    <%# Todo number_to_currency(:amount, :unit => "£", :separator => ".", :delimiter => ",", format: "%u%n") %>
+  </p>
+
+  <p>
+    <%= f.label :type %><br>
+    <%= f.select :type, options_for_select([['Credit'], ['Debit']]) %>
+    <%# Todo need to fetch from transaction types model, may need other options %>
+  </p>
+
+  <p>
+    <%= f.label :category %><br>
+    <%= f.select :category, options_for_select([['Bank transfer'], ['Utility Bill']]) %>
+    <%# Todo need to fetch from categories model, maybe ajax, needs hierarchy %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
