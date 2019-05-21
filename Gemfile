@@ -26,7 +26,7 @@ gem 'coffee-rails', '~> 4.2'
 # Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+# gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -38,11 +38,12 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Bootstrap is a css framework
   gem 'bootstrap', '~> 4.0.0'
-  # Adds support for Capybara system testing and selenium driver
-  # gem 'capybara', '~> 2.13'
-  # gem 'selenium-webdriver'
+  # Generate models and json easily in tests
+  gem 'factory_bot_rails'
   # Use jquery as the JavaScript library
   gem 'jquery-rails'
+  # For testing
+  gem 'rspec-rails', require: false
 end
 
 group :development do
@@ -68,8 +69,6 @@ end
 group :test do
   gem 'capybara' # Interface for integration tests
   gem 'capybara-selenium' # Browser driver for integration tests
-  gem 'factory_bot' # Generate models and json easily in tests
-  gem 'rspec-rails', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
