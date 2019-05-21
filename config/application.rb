@@ -31,7 +31,7 @@ module Accounting
       g.model_specs true
       g.observer_specs false
       g.routing_specs false
-      g.view_specs false
+      g.view_specs true
       g.javascript_engine :js
     end
   end
